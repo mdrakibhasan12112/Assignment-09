@@ -2,11 +2,11 @@ import { Button } from '@heroui/react';
 import Link from 'next/link';
 import React from 'react';
 import CarsCard from './CarsCard';
-import { fetchExploreCars } from '@/lib/cars/data';
+import { fetchExploreCars, fetchTopExploreCars } from '@/lib/cars/data';
 import { Sparkles, ArrowRight } from 'lucide-react';
 
 const TopCars =async () => {
-  const cars = await fetchExploreCars()
+  const cars = await fetchTopExploreCars()
  return (
    <div className="max-w-7xl mx-auto mt-8">
      <div className="flex flex-col lg:flex-row lg:items-center lg:justify-between gap-6 mb-10">
@@ -71,7 +71,7 @@ const TopCars =async () => {
        </div>
      </div>
      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mt-8">
-       {cars.slice(0, 3).map(car => (
+       {cars.map(car => (
          <CarsCard key={car._id} car={car} />
        ))}
      </div>

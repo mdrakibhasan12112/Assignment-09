@@ -7,6 +7,7 @@ import { Button } from '@heroui/react';
 
 const CarsCard = ({ car }) => {
  const {
+  _id,
    imageUrl,
    carName,
    dailyRentPrice,
@@ -121,7 +122,7 @@ const buttonVariants = {
            whileHover="hover"
            whileTap="tap"
          >
-           <Link href={'#'}>
+           <Link href={`/explore-car/${_id}`}>
              <p>View Details</p>
            </Link>
            <motion.span

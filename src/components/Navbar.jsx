@@ -82,36 +82,31 @@ export default function Navbar() {
         </ul>
         <div className="hidden items-center gap-4 md:flex">
           <Link href="/profile">Profile</Link>
-          {/* {user ? (
-            <>
-              <div className="flex gap-3 items-center">
-                {' '}
-                <Avatar>
-                  <Avatar.Image
-                    referrerPolicy="no-referrer"
-                    alt="John Doe"
-                    src={user?.image}
-                  />
-                  <Avatar.Fallback>{user.name.charAt(0)}</Avatar.Fallback>
-                </Avatar>
-                <Button onClick={handleSignOut} variant="danger-soft">
-                  Sign Out
-                </Button>
-              </div>
-            </>
-          ) : (
-            <>
-              <Link href="/login" className="block py-2">
-                Login
-              </Link>
 
-              <Link href="/signup">
-                <Button className="w-full" variant="secondary">
-                  Sign Up
-                </Button>
-              </Link>
-            </>
-          )} */}
+          {/* <div className="flex gap-3 items-center">
+            {' '}
+            <Avatar>
+              <Avatar.Image
+                referrerPolicy="no-referrer"
+                alt="John Doe"
+                src={user?.image}
+              />
+              <Avatar.Fallback>{user.name.charAt(0)}</Avatar.Fallback>
+            </Avatar>
+            <Button onClick={handleSignOut} variant="danger-soft">
+              Sign Out
+            </Button>
+          </div> */}
+
+          <Link href="/login" className="block py-2">
+            Login
+          </Link>
+
+          <Link href="/signup">
+            <Button className="w-full" variant="secondary">
+              Sign Up
+            </Button>
+          </Link>
         </div>
       </header>
       {isMenuOpen && (

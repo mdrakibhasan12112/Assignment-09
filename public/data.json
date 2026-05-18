@@ -1,0 +1,92 @@
+[
+  {
+    "carName": "Toyota Camry 2023",
+    "dailyRentPrice": 4500,
+    "carType": "Sedan",
+    "imageUrl": "https://images.unsplash.com/photo-1552519507-da3b142c6e3d?q=80&w=2070",
+    "seatCapacity": 5,
+    "pickupLocation": "Rangpur City",
+    "description": "Comfortable and fuel-efficient sedan with premium interior, perfect for city drives and long trips.",
+    "availabilityStatus": "Available"
+  },
+  {
+    "carName": "Honda CR-V 2024",
+    "dailyRentPrice": 6500,
+    "carType": "SUV",
+    "imageUrl": "https://images.unsplash.com/photo-1609521263047-f8f205293f24?q=80&w=2070",
+    "seatCapacity": 7,
+    "pickupLocation": "Rangpur City",
+    "description": "Spacious SUV with excellent ground clearance, ideal for family trips and highway journeys.",
+    "availabilityStatus": "Available"
+  },
+  {
+    "carName": "Hyundai i20 2023",
+    "dailyRentPrice": 3200,
+    "carType": "Hatchback",
+    "imageUrl": "https://images.unsplash.com/photo-1558618666-fcd25c85cd64?q=80&w=2070",
+    "seatCapacity": 5,
+    "pickupLocation": "Rangpur City",
+    "description": "Stylish and agile hatchback with modern features, great for daily commuting in the city.",
+    "availabilityStatus": "Available"
+  },
+  {
+    "carName": "Mercedes-Benz E-Class 2022",
+    "dailyRentPrice": 12000,
+    "carType": "Luxury",
+    "imageUrl": "https://images.unsplash.com/photo-1556189250-72ba954cfc2b?q=80&w=2070",
+    "seatCapacity": 5,
+    "pickupLocation": "Rangpur City",
+    "description": "Premium luxury sedan with ultimate comfort, advanced safety features and elegant design.",
+    "availabilityStatus": "Available"
+  },
+  {
+    "carName": "Mahindra Scorpio-N 2024",
+    "dailyRentPrice": 5500,
+    "carType": "SUV",
+    "imageUrl": "https://images.unsplash.com/photo-1542362567-b07e54358753?q=80&w=1170&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+    "seatCapacity": 7,
+    "pickupLocation": "Rangpur City",
+    "description": "Rugged and powerful SUV perfect for both city roads and rough terrains of Bangladesh.",
+    "availabilityStatus": "Available"
+  },
+  {
+    "carName": "Toyota Corolla 2023",
+    "dailyRentPrice": 4000,
+    "carType": "Sedan",
+    "imageUrl": "https://images.unsplash.com/photo-1459603677915-a62079ffd002?q=80&w=1534&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+    "seatCapacity": 5,
+    "pickupLocation": "Rangpur City",
+    "description": "Reliable and low-maintenance sedan, one of the most popular choices for daily rental.",
+    "availabilityStatus": "Booked"
+  },
+  {
+    "carName": "BMW 3 Series 2023",
+    "dailyRentPrice": 9500,
+    "carType": "Luxury",
+    "imageUrl": "https://images.unsplash.com/photo-1542362567-b07e54358753?q=80&w=1170&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+    "seatCapacity": 5,
+    "pickupLocation": "Rangpur City",
+    "description": "Sporty luxury sedan with powerful performance and luxurious cabin experience.",
+    "availabilityStatus": "Available"
+  },
+  {
+    "carName": "Suzuki Swift 2024",
+    "dailyRentPrice": 2800,
+    "carType": "Hatchback",
+    "imageUrl": "https://images.unsplash.com/photo-1502877338535-766e1452684a?q=80&w=1172&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+    "seatCapacity": 5,
+    "pickupLocation": "Rangpur City",
+    "description": "Compact, fuel-efficient and easy to drive hatchback, perfect for narrow city streets.",
+    "availabilityStatus": "Available"
+  },
+  {
+    "carName": "Tesla Model 3 2024",
+    "dailyRentPrice": 8500,
+    "carType": "Electric",
+    "imageUrl": "https://images.unsplash.com/photo-1555215695-3004980ad54e?q=80&w=2070",
+    "seatCapacity": 5,
+    "pickupLocation": "Rangpur City",
+    "description": "Modern electric sedan with autopilot features, zero emission and futuristic technology.",
+    "availabilityStatus": "Available"
+  }
+]

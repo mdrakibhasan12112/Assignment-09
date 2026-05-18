@@ -1,0 +1,160 @@
+'use client';
+import { useState } from 'react';
+import { Link, Button, Avatar } from '@heroui/react';
+import Image from 'next/image';
+// import { authClient } from '@/lib/auth-client';
+
+export default function Navbar() {
+  const [isMenuOpen, setIsMenuOpen] = useState(false);
+
+  // const handleSignOut = async () => {
+  //   await authClient.signOut();
+  // };
+
+  // const { data: session } = authClient.useSession();
+  // const user = session?.user;
+  // console.log(user);
+
+  return (
+    <nav className="sticky top-0 z-40 w-full border-b border-separator bg-background/70 backdrop-blur-lg">
+      <header className="mx-auto flex h-16 items-center justify-between px-6">
+        <div className="flex items-center gap-4">
+          <button
+            className="md:hidden"
+            onClick={() => setIsMenuOpen(!isMenuOpen)}
+            aria-label="Toggle menu"
+            aria-expanded={isMenuOpen}
+          >
+            <span className="sr-only">Menu</span>
+            <svg
+              className="h-6 w-6"
+              fill="none"
+              stroke="currentColor"
+              viewBox="0 0 24 24"
+            >
+              {isMenuOpen ? (
+                <path
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  strokeWidth={2}
+                  d="M6 18L18 6M6 6l12 12"
+                />
+              ) : (
+                <path
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  strokeWidth={2}
+                  d="M4 6h16M4 12h16M4 18h16"
+                />
+              )}
+            </svg>
+          </button>
+          <div className="flex items-center gap-3">
+            {/* <Logo /> */}
+            <Image
+              src={'/assets/logo.avif'}
+              height={40}
+              width={60}
+              alt="logo"
+              className="rounded-full p-2"
+            ></Image>
+          </div>
+        </div>
+        <ul className="hidden items-center gap-4 md:flex">
+          <li>
+            <Link href="/">Home</Link>
+          </li>
+          <li>
+            <Link
+              href="/explore-car"
+              className="font-medium"
+              aria-current="page"
+            >
+              Explore Car
+            </Link>
+          </li>
+          <li>
+            <Link href="/add-car">Add Car</Link>
+          </li>
+          <li>
+            <Link href="/my-bookings">My Bookings</Link>
+          </li>
+        </ul>
+        <div className="hidden items-center gap-4 md:flex">
+          <Link href="/profile">Profile</Link>
+          {/* {user ? (
+            <>
+              <div className="flex gap-3 items-center">
+                {' '}
+                <Avatar>
+                  <Avatar.Image
+                    referrerPolicy="no-referrer"
+                    alt="John Doe"
+                    src={user?.image}
+                  />
+                  <Avatar.Fallback>{user.name.charAt(0)}</Avatar.Fallback>
+                </Avatar>
+                <Button onClick={handleSignOut} variant="danger-soft">
+                  Sign Out
+                </Button>
+              </div>
+            </>
+          ) : (
+            <>
+              <Link href="/login" className="block py-2">
+                Login
+              </Link>
+
+              <Link href="/signup">
+                <Button className="w-full" variant="secondary">
+                  Sign Up
+                </Button>
+              </Link>
+            </>
+          )} */}
+        </div>
+      </header>
+      {isMenuOpen && (
+        <div className="border-t border-separator md:hidden">
+          <ul className="flex flex-col gap-2 p-4">
+            <li>
+              <Link href="/" className="block py-2">
+                Home
+              </Link>
+            </li>
+            <li>
+              <Link href="/destinations" className="block py-2 font-medium">
+                Destinations
+              </Link>
+            </li>
+            <li>
+              <Link href="/my-bookings" className="block py-2">
+                My Bookings
+              </Link>
+            </li>
+            <li>
+              <Link href="/admin" className="block py-2">
+                Admin
+              </Link>
+            </li>
+
+            <li className="mt-4 flex flex-col gap-2 border-t border-separator pt-4">
+              <Link href="/profile" className="block py-2">
+                Profile
+              </Link>
+              <Link href="/login" className="block py-2">
+                Login
+              </Link>
+
+              <Link href="/signup">
+                <Button className="w-full" variant="secondary">
+                  Sign Up
+                </Button>
+              </Link>
+            </li>
+          </ul>
+        </div>
+      )}
+    </nav>
+  );
+}

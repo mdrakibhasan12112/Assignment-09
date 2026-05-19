@@ -13,39 +13,45 @@ import {
   TextField,
 } from '@heroui/react';
 import Link from 'next/link';
-import { redirect, useRouter,} from 'next/navigation';
+import { redirect, useRouter } from 'next/navigation';
 import { FcGoogle } from 'react-icons/fc';
 import { authClient } from '@/lib/auth-client';
 import toast, { Toaster } from 'react-hot-toast';
 
 const SignUpPage = () => {
-const router = useRouter();
+  const router = useRouter();
   const onSubmit = async e => {
     e.preventDefault();
 
     const formData = new FormData(e.currentTarget);
     const user = Object.fromEntries(formData.entries());
-// console.log(user);
+    // console.log(user);
     const { data, error } = await authClient.signUp.email({
       email: user.email,
       password: user.password,
       name: user.name,
       image: user.image,
     });
-console.log({data,error});
+    // console.log({data,error});
     if (data) {
-         toast.success('Account created successfully!');
+      toast.success('Account created successfully!');
 
-         setTimeout(() => {
-           router.push('/');
-         }, 1500);
-
+      setTimeout(() => {
+        router.push('/');
+      }, 1500);
     }
 
     if (error) {
-       toast.error(error.message || 'Signup failed');
+      toast.error(error.message || 'Signup failed');
     }
   };
+
+  const handleGoogleSignin = async () => {
+    await authClient.signIn.social({
+    provider:"google"
+  })
+}
+
 
   return (
     <div className="min-h-screen bg-gray-100 flex items-center justify-center px-4 py-10">
@@ -123,7 +129,7 @@ console.log({data,error});
         <div className="text-center justify-center space-y-5">
           <p>Or signup with</p>
           <Button
-            // onClick={handleGoogleSignin}
+            onClick={handleGoogleSignin}
             variant="outline"
             className="w-full rounded-none text-md font-bold items-center"
           >

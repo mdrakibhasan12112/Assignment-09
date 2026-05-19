@@ -4,16 +4,14 @@ import { Link, Button, Avatar } from '@heroui/react';
 import Image from 'next/image';
 // import { authClient } from '@/lib/auth-client';
 
+
 export default function Navbar() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
 
-  // const handleSignOut = async () => {
-  //   await authClient.signOut();
-  // };
+  // const { data: session, } = authClient.useSession()
+  // console.log(session);
 
-  // const { data: session } = authClient.useSession();
-  // const user = session?.user;
-  // console.log(user);
+ 
 
   return (
     <nav className="sticky top-0 z-40 w-full border-b border-separator bg-background/70 backdrop-blur-lg">
@@ -83,20 +81,36 @@ export default function Navbar() {
         <div className="hidden items-center gap-4 md:flex">
           <Link href="/profile">Profile</Link>
 
-          {/* <div className="flex gap-3 items-center">
-            {' '}
-            <Avatar>
-              <Avatar.Image
-                referrerPolicy="no-referrer"
-                alt="John Doe"
-                src={user?.image}
-              />
-              <Avatar.Fallback>{user.name.charAt(0)}</Avatar.Fallback>
-            </Avatar>
-            <Button onClick={handleSignOut} variant="danger-soft">
-              Sign Out
-            </Button>
-          </div> */}
+          {/* {user ? (
+            <>
+              <div className="flex gap-3 items-center">
+                {' '}
+                <Avatar>
+                  <Avatar.Image
+                    referrerPolicy="no-referrer"
+                    alt="John Doe"
+                    src={user?.image}
+                  />
+                  <Avatar.Fallback>{user.name.charAt(0)}</Avatar.Fallback>
+                </Avatar>
+                <Button onClick={handleSignOut} variant="danger-soft">
+                  Sign Out
+                </Button>
+              </div>
+            </>
+          ) : (
+            <>
+              <Link href="/login" className="block py-2">
+                Login
+              </Link>
+
+              <Link href="/signup">
+                <Button className="w-full" variant="secondary">
+                  Sign Up
+                </Button>
+              </Link>
+            </>
+          )} */}
 
           <Link href="/login" className="block py-2">
             Login
@@ -118,18 +132,18 @@ export default function Navbar() {
               </Link>
             </li>
             <li>
-              <Link href="/destinations" className="block py-2 font-medium">
-                Destinations
+              <Link href="/explore-car" className="block py-2 font-medium">
+                Explore Car
+              </Link>
+            </li>
+            <li>
+              <Link href="/add-car" className="block py-2">
+                Add Car
               </Link>
             </li>
             <li>
               <Link href="/my-bookings" className="block py-2">
                 My Bookings
-              </Link>
-            </li>
-            <li>
-              <Link href="/admin" className="block py-2">
-                Admin
               </Link>
             </li>
 

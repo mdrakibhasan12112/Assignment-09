@@ -31,7 +31,7 @@ const router = useRouter();
       password: user.password,
     
     });
-console.log({data,error});
+// console.log({data,error});
     if (data) {
          toast.success('Account created successfully!');
 
@@ -45,6 +45,12 @@ console.log({data,error});
        toast.error(error.message || 'Signup failed');
     }
   };
+
+  const handleGoogleSignin = async () => {
+    await authClient.signIn.social({
+    provider:"google"
+  })
+}
 
   return (
     <div className="min-h-screen bg-gray-100 flex items-center justify-center px-4 py-10">
@@ -113,7 +119,7 @@ console.log({data,error});
         <div className="text-center justify-center space-y-5">
           <p>Or signup with</p>
           <Button
-            // onClick={handleGoogleSignin}
+            onClick={handleGoogleSignin}
             variant="outline"
             className="w-full rounded-none text-md font-bold items-center"
           >

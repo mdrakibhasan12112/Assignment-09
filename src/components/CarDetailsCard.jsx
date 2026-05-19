@@ -16,6 +16,7 @@ import Link from 'next/link';
 import { EditModel } from './EditModel';
 import { DeleteCarAlert } from './DeleteCarAlert';
 import { FaArrowLeft } from 'react-icons/fa';
+import BookingCard from './BookingCard';
 
 const CarDetailsCard = ({ cars }) => {
   const {
@@ -131,10 +132,8 @@ const CarDetailsCard = ({ cars }) => {
 
           {/* Buttons */}
           <div className="flex gap-4 mt-10">
-            <Button className="bg-black text-white rounded-2xl h-14 flex-1">
-              Book Now
-              <ArrowRight size={20} />
-            </Button>
+           
+            <BookingCard cars={cars}></BookingCard>
           </div>
         </div>
       </div>

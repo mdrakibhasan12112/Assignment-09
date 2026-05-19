@@ -12,18 +12,20 @@ import {
 
 import Image from 'next/image';
 import { motion } from 'framer-motion';
+import Link from 'next/link';
+import { EditModel } from './EditModel';
 
-const CarDetailsCard = ({ car }) => {
+const CarDetailsCard = ({ cars }) => {
   const {
     imageUrl,
-    carName,
+    CarName,
     dailyRentPrice,
     availabilityStatus,
     carType,
-    pickupLocation,
+    location,
     seatCapacity,
     description,
-  } = car;
+  } = cars;
 
   return (
     <motion.div
@@ -33,12 +35,25 @@ const CarDetailsCard = ({ car }) => {
       whileHover={{ y: -8 }}
       className="group max-w-5xl mx-auto overflow-hidden rounded-[32px] border border-gray-200 bg-white shadow-xl hover:shadow-2xl transition-all duration-500"
     >
+      <div className="flex justify-between space-x-5 p-8 mt-3 mb-3">
+        <div>
+          <Link href={'/explore-car'} className="border p-2">
+            Back to Explore car
+          </Link>
+        </div>
+        <div className="flex gap-4">
+           <EditModel cars={cars}></EditModel>
+          <Button variant="outline" className={'rounded-none text-red-500'}>
+            Delete
+          </Button>
+        </div>
+      </div>
+
       <div className="grid lg:grid-cols-2">
-        {/* Image */}
         <div className="relative overflow-hidden">
           <Image
             src={imageUrl}
-            alt={carName}
+            alt={CarName}
             width={800}
             height={600}
             className="h-full w-full object-cover group-hover:scale-110 transition-transform duration-700"
@@ -51,7 +66,7 @@ const CarDetailsCard = ({ car }) => {
         <div className="p-8 lg:p-10">
           <div className="flex justify-between gap-4">
             <div>
-              <h1 className="text-4xl font-black">{carName}</h1>
+              <h1 className="text-4xl font-black">{CarName}</h1>
 
               <p className="text-gray-500 mt-2">
                 Luxury & premium driving experience
@@ -87,7 +102,7 @@ const CarDetailsCard = ({ car }) => {
               <MapPin />
               <div>
                 <p className="text-sm text-gray-500">Pickup</p>
-                <h3 className="font-bold">{pickupLocation}</h3>
+                <h3 className="font-bold">{location}</h3>
               </div>
             </div>
 
@@ -119,7 +134,6 @@ const CarDetailsCard = ({ car }) => {
               Book Now
               <ArrowRight size={20} />
             </Button>
-
           </div>
         </div>
       </div>

@@ -1,12 +1,13 @@
 import CarsCard from '@/components/CarsCard';
-import { fetchExploreCars } from '@/lib/cars/data';
 import React from 'react';
 
 
 
-const ExploreCarPage =async () => {
- const cars = await fetchExploreCars()
+const ExploreCarPage = async () => {
+ const res = await fetch('http://localhost:8080/explore-car');
+ const cars = await res.json()
  console.log(cars);
+
  return (
    <div className='mt-12'>
      <div className='max-w-7xl mx-auto'>

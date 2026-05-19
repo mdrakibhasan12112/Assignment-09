@@ -7,11 +7,39 @@ import { ArrowRight } from 'lucide-react';
 import { authClient } from '@/lib/auth-client';
 
 const BookingCard = ({ cars }) => {
-  const { data: session } = authClient.useSession();
-  console.log(session);
+ const { data: session } = authClient.useSession();
+ const user = session?.user
+  // console.log(user);
 
-  const [date, setDate] = useState(null);
-  console.log(new Date(date));
+ const { _id, CarName, imageUrl, location, carType, dailyRentPrice } = cars;
+ 
+  const [departureDate, setDepartureDate] = useState(null);
+ const handleBooking = async () => {
+  const bookingData = {
+   userId: user?.id,
+   userImage: user?.image,
+   userName: user?.name,
+   userEmail: user?.email,
+   carId: _id,
+   CarName,
+   location,
+   dailyRentPrice,
+   carType,
+   imageUrl,
+   departureDate: new Date(departureDate)
+  }
+  const res =await fetch('http://localhost:8080/my-bookings', {
+   method: "POST",
+   headers: {
+    'content-type':'application/json'
+   },
+   body:JSON.stringify(bookingData)
+});
+  const data = await res.json()
+  console.log(data);
+  
+} 
+
   return (
     <Card className="space-y-4 border-2 rounded-none">
       <div className="flex gap-2 ">
@@ -33,7 +61,7 @@ const BookingCard = ({ cars }) => {
         ></textarea>
       </div>
 
-      <DateField onChange={setDate} className="w-[256px]" name="date">
+      <DateField onChange={setDepartureDate} className="w-[256px]" name="date">
         <Label>Date</Label>
         <DateField.Group>
           <DateField.Input>
@@ -41,7 +69,7 @@ const BookingCard = ({ cars }) => {
           </DateField.Input>
         </DateField.Group>
       </DateField>
-      <Button className="bg-black text-white w-full mt-4 p-2 rounded-2xl flex-1">
+      <Button onClick={handleBooking} className="bg-black text-white w-full mt-4 p-2 rounded-2xl flex-1">
         Book Now
         <ArrowRight size={20} />
       </Button>

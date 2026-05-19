@@ -10,7 +10,7 @@ export default function Navbar() {
 
   const { data: session, } = authClient.useSession()
   const user = session?.user
-  console.log(user);
+  // console.log(user);
 
   const handleSignOut = async () => {
   await authClient.signOut()

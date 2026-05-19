@@ -13,6 +13,7 @@ import {
   TextField,
   Select,
 } from '@heroui/react';
+import { MdEditDocument } from 'react-icons/md';
 
 export function EditModel({ cars }) {
  const {
@@ -48,6 +49,7 @@ const onSubmit = async e => {
   return (
     <Modal>
       <Button variant="outline" className={'rounded-none'}>
+        <MdEditDocument />
         Edit
       </Button>
       <Modal.Backdrop>
@@ -69,7 +71,11 @@ const onSubmit = async e => {
                   <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
                     {/* Destination Name */}
                     <div className="md:col-span-2">
-                      <TextField defaultValue={CarName} name="CarName" isRequired>
+                      <TextField
+                        defaultValue={CarName}
+                        name="CarName"
+                        isRequired
+                      >
                         <Label>Car Name</Label>
                         <Input placeholder="car name" className="rounded-2xl" />
                         <FieldError />
@@ -77,7 +83,11 @@ const onSubmit = async e => {
                     </div>
 
                     {/* Country */}
-                    <TextField defaultValue={dailyRentPrice} name="dailyRentPrice" isRequired>
+                    <TextField
+                      defaultValue={dailyRentPrice}
+                      name="dailyRentPrice"
+                      isRequired
+                    >
                       <Label>dailyRentPrice</Label>
                       <Input
                         type="number"
@@ -89,8 +99,8 @@ const onSubmit = async e => {
 
                     {/* Category - Updated Select Component */}
                     <div>
-            <Select
-             defaultValue={carType}
+                      <Select
+                        defaultValue={carType}
                         name="carType"
                         isRequired
                         className="w-full"
@@ -125,14 +135,23 @@ const onSubmit = async e => {
                     </div>
 
                     {/* Price */}
-                    <TextField defaultValue={seatCapacity} name="seatCapacity" type="number" isRequired>
+                    <TextField
+                      defaultValue={seatCapacity}
+                      name="seatCapacity"
+                      type="number"
+                      isRequired
+                    >
                       <Label>Seat Capacity</Label>
                       <Input type="number" className="rounded-2xl" />
                       <FieldError />
                     </TextField>
 
                     {/* Duration */}
-                    <TextField defaultValue={location} name="location" isRequired>
+                    <TextField
+                      defaultValue={location}
+                      name="location"
+                      isRequired
+                    >
                       <Label>Pickup Location</Label>
                       <Input placeholder="Dhaka" className="rounded-2xl" />
                       <FieldError />
@@ -140,8 +159,8 @@ const onSubmit = async e => {
 
                     {/* Departure Date */}
                     <div className="md:col-span-2">
-            <TextField
-             defaultValue={availabilityStatus}
+                      <TextField
+                        defaultValue={availabilityStatus}
                         name="availabilityStatus"
                         type="date"
                         isRequired
@@ -154,7 +173,11 @@ const onSubmit = async e => {
 
                     {/* Image URL - Removed preview */}
                     <div className="md:col-span-2">
-                      <TextField defaultValue={imageUrl} name="imageUrl" isRequired>
+                      <TextField
+                        defaultValue={imageUrl}
+                        name="imageUrl"
+                        isRequired
+                      >
                         <Label>Image URL</Label>
                         <Input
                           type="url"
@@ -167,7 +190,11 @@ const onSubmit = async e => {
 
                     {/* Description */}
                     <div className="md:col-span-2">
-                      <TextField defaultValue={description} name="description" isRequired>
+                      <TextField
+                        defaultValue={description}
+                        name="description"
+                        isRequired
+                      >
                         <Label>Description</Label>
                         <TextArea
                           placeholder="Describe the travel experience..."
@@ -183,7 +210,9 @@ const onSubmit = async e => {
                     <Button slot="close" variant="secondary">
                       Cancel
                     </Button>
-                    <Button type='submit' slot="close">Save</Button>
+                    <Button type="submit" slot="close">
+                      Save
+                    </Button>
                   </Modal.Footer>
                 </form>
               </Surface>

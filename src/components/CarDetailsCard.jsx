@@ -14,6 +14,8 @@ import Image from 'next/image';
 import { motion } from 'framer-motion';
 import Link from 'next/link';
 import { EditModel } from './EditModel';
+import { DeleteCarAlert } from './DeleteCarAlert';
+import { FaArrowLeft } from 'react-icons/fa';
 
 const CarDetailsCard = ({ cars }) => {
   const {
@@ -37,15 +39,14 @@ const CarDetailsCard = ({ cars }) => {
     >
       <div className="flex justify-between space-x-5 p-8 mt-3 mb-3">
         <div>
-          <Link href={'/explore-car'} className="border p-2">
-            Back to Explore car
+          <Link href={'/explore-car'} className="border p-2 flex gap-2 items-center justify-center">
+            <FaArrowLeft /> Back to Explore car
           </Link>
         </div>
         <div className="flex gap-4">
-           <EditModel cars={cars}></EditModel>
-          <Button variant="outline" className={'rounded-none text-red-500'}>
-            Delete
-          </Button>
+          <EditModel cars={cars}></EditModel>
+
+          <DeleteCarAlert cars={cars}></DeleteCarAlert>
         </div>
       </div>
 

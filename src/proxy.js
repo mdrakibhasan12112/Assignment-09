@@ -16,5 +16,5 @@ const session = await auth.api.getSession({
 
 
 export const config = {
-  matcher: ['/my-bookings', '/add-car', '/explore-car/:path'],
+  matcher: ['/my-bookings', '/add-car', '/explore-car/:path','/profile'],
 };

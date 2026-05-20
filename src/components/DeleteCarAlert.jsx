@@ -16,7 +16,7 @@ export function DeleteCarAlert({ cars }) {
     });
     const data = await res.json();
     redirect('/explore-car');
-    console.log(data);
+    // console.log(data);
   };
 
   return (

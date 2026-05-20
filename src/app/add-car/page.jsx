@@ -32,10 +32,10 @@ const data = await res.json()
   };
 
   return (
-    <div className="p-10 max-w-7xl mx-auto">
-      <h1 className="text-5xl ">Add New Car</h1>
+    <div className="max-w-7xl mx-auto py-10 px-4">
+      <h1 className="text-5xl font-bold text-center mb-4">Add New Car</h1>
 
-      <form onSubmit={onSubmit} className="p-10 space-y-8 w-3xl shadow-xl mt-4">
+      <form onSubmit={onSubmit} className="p-10 space-y-8 max-w-3xl mx-auto shadow-2xl mt-4">
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
           {/* Destination Name */}
           <div className="md:col-span-2">

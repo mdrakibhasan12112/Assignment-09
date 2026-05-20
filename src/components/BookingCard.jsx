@@ -5,6 +5,7 @@ import React, { useState } from 'react';
 import { DateField, Label } from '@heroui/react';
 import { ArrowRight } from 'lucide-react';
 import { authClient } from '@/lib/auth-client';
+import toast, { Toaster } from 'react-hot-toast';
 
 const BookingCard = ({ cars }) => {
  const { data: session } = authClient.useSession();
@@ -13,21 +14,27 @@ const BookingCard = ({ cars }) => {
 
  const { _id, CarName, imageUrl, location, carType, dailyRentPrice } = cars;
  
-  const [departureDate, setDepartureDate] = useState(null);
+ const [departureDate, setDepartureDate] = useState(null);
+ 
+ const [driverNeeded, setDriverNeeded] = useState('Yes');
+ const [specialNote, setSpecialNote] = useState('');
+
  const handleBooking = async () => {
   const bookingData = {
-   userId: user?.id,
-   userImage: user?.image,
-   userName: user?.name,
-   userEmail: user?.email,
-   carId: _id,
-   CarName,
-   location,
-   dailyRentPrice,
-   carType,
-   imageUrl,
-   departureDate: new Date(departureDate)
-  }
+    userId: user?.id,
+    userImage: user?.image,
+    userName: user?.name,
+    userEmail: user?.email,
+    carId: _id,
+    CarName,
+    location,
+    dailyRentPrice,
+    carType,
+    imageUrl,
+    departureDate: new Date(departureDate),
+    driverNeeded,
+    specialNote,
+  };
   const res =await fetch('http://localhost:8080/my-bookings', {
    method: "POST",
    headers: {
@@ -36,7 +43,7 @@ const BookingCard = ({ cars }) => {
    body:JSON.stringify(bookingData)
 });
   const data = await res.json()
-  console.log(data);
+  toast.success('You booked successfully')
   
 } 
 
@@ -45,7 +52,11 @@ const BookingCard = ({ cars }) => {
       <div className="flex gap-2 ">
         <label className="">Driver Needed :</label>
 
-        <select name="driverNeeded" className="border">
+        <select
+          name="driverNeeded"
+          className="border"
+          onChange={e => setDriverNeeded(e.target.value)}
+        >
           <option value="Yes">Yes</option>
           <option value="No">No</option>
         </select>
@@ -55,6 +66,7 @@ const BookingCard = ({ cars }) => {
 
         <textarea
           name="specialNote"
+          onChange={e => setSpecialNote(e.target.value)}
           placeholder="Write your note..."
           className="border"
           rows="2"
@@ -69,7 +81,10 @@ const BookingCard = ({ cars }) => {
           </DateField.Input>
         </DateField.Group>
       </DateField>
-      <Button onClick={handleBooking} className="bg-black text-white w-full mt-4 p-2 rounded-2xl flex-1">
+      <Button
+        onClick={handleBooking}
+        className="bg-black text-white w-full mt-4 p-2 rounded-2xl flex-1"
+      >
         Book Now
         <ArrowRight size={20} />
       </Button>

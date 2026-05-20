@@ -1,6 +1,4 @@
-// 'use client'
-import { Button } from '@heroui/react';
-import Image from 'next/image';
+
 import React from 'react';
 
 import { motion } from 'framer-motion';

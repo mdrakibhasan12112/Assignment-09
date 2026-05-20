@@ -1,5 +1,6 @@
 'use client';
 
+import { authClient } from '@/lib/auth-client';
 import { Envelope } from '@gravity-ui/icons';
 import {
   Button,
@@ -35,10 +36,12 @@ const onSubmit = async e => {
   const cars = Object.fromEntries(formData.entries());
   console.log(cars);
 
+  const { data: tokenData } = await authClient.token();
   const res = await fetch(`http://localhost:8080/explore-car/${_id}`, {
     method: 'PATCH',
     headers: {
       'content-type': 'application/json',
+      authorization: `Bearer ${tokenData?.token}`,
     },
     body: JSON.stringify(cars),
   });

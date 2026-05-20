@@ -11,6 +11,7 @@ import {
   Select,
   Card,
 } from '@heroui/react';
+import { authClient } from '@/lib/auth-client';
 
 const AddCarPage = () => {
   const onSubmit = async e => {
@@ -19,12 +20,14 @@ const AddCarPage = () => {
     const cars = Object.fromEntries(formData.entries());
     console.log(cars);
 
+      const { data: tokenData } = await authClient.token();
     const res = await fetch(`http://localhost:8080/explore-car`, {
       method: 'POST',
       headers: {
         'content-type': 'application/json',
+        authorization: `Bearer ${tokenData?.token}`,
       },
-      body: JSON.stringify(cars),
+       body: JSON.stringify(cars),
     });
 const data = await res.json()
     console.log(data);
@@ -46,14 +49,12 @@ const data = await res.json()
             </TextField>
           </div>
 
-          {/* Country */}
           <TextField name="dailyRentPrice" isRequired>
             <Label>dailyRentPrice</Label>
             <Input type="number" placeholder="000" className="rounded-2xl" />
             <FieldError />
           </TextField>
 
-          {/* Category - Updated Select Component */}
           <div>
             <Select
               name="carType"
@@ -89,21 +90,18 @@ const data = await res.json()
             </Select>
           </div>
 
-          {/* Price */}
           <TextField name="seatCapacity" type="number" isRequired>
             <Label>Seat Capacity</Label>
             <Input type="number" className="rounded-2xl" />
             <FieldError />
           </TextField>
 
-          {/* Duration */}
           <TextField name="location" isRequired>
             <Label>Pickup Location</Label>
             <Input placeholder="Dhaka" className="rounded-2xl" />
             <FieldError />
           </TextField>
 
-          {/* Departure Date */}
           <div className="md:col-span-2">
             <TextField name="availabilityStatus" type="date" isRequired>
               <Label>Availability Status</Label>
@@ -112,7 +110,6 @@ const data = await res.json()
             </TextField>
           </div>
 
-          {/* Image URL - Removed preview */}
           <div className="md:col-span-2">
             <TextField name="imageUrl" isRequired>
               <Label>Image URL</Label>

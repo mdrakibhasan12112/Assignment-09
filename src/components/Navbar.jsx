@@ -4,17 +4,16 @@ import { Link, Button, Avatar } from '@heroui/react';
 import Image from 'next/image';
 import { authClient } from '@/lib/auth-client';
 
-
 export default function Navbar() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
 
-  const { data: session, } = authClient.useSession()
-  const user = session?.user
+  const { data: session } = authClient.useSession();
+  const user = session?.user;
   // console.log(user);
 
   const handleSignOut = async () => {
-  await authClient.signOut()
-}
+    await authClient.signOut();
+  };
 
   return (
     <nav className=" bg-background/70  sticky top-0 z-40 w-full px-4 border-b border-separator backdrop-blur-lg ">

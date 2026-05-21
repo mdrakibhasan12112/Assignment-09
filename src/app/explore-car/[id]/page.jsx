@@ -14,11 +14,14 @@ const CarsDetailsPage = async ({ params }) => {
   });
   console.log(token);
 
-  const res = await fetch(`http://localhost:8080/explore-car/${id}`, {
-    headers: {
-      authorization: `Bearer ${token}`,
+  const res = await fetch(
+    `${process.env.NEXT_PUBLIC_SERVER_URL}/explore-car/${id}`,
+    {
+      headers: {
+        authorization: `Bearer ${token}`,
+      },
     },
-  });
+  );
   const cars = await res.json();
   console.log(cars);
 

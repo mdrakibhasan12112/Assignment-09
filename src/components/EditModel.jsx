@@ -37,14 +37,17 @@ const onSubmit = async e => {
   console.log(cars);
 
   const { data: tokenData } = await authClient.token();
-  const res = await fetch(`http://localhost:8080/explore-car/${_id}`, {
-    method: 'PATCH',
-    headers: {
-      'content-type': 'application/json',
-      authorization: `Bearer ${tokenData?.token}`,
+  const res = await fetch(
+    `${process.env.NEXT_PUBLIC_SERVER_URL}/explore-car/${_id}`,
+    {
+      method: 'PATCH',
+      headers: {
+        'content-type': 'application/json',
+        authorization: `Bearer ${tokenData?.token}`,
+      },
+      body: JSON.stringify(cars),
     },
-    body: JSON.stringify(cars),
-  });
+  );
   const data = await res.json();
   console.log(data);
 };

@@ -8,13 +8,16 @@ export function BookingCancelAlert({ bookingId }) {
   const handleCancelBooking = async () => {
 
     const {data:tokenData} = await authClient.token()
-   const res = await fetch(`http://localhost:8080/my-bookings/${bookingId}`, {
-     method: 'DELETE',
-     headers: {
-       'content-type': 'application/json',
-       authorization: `Bearer ${tokenData?.token}`,
+   const res = await fetch(
+     `${process.env.NEXT_PUBLIC_SERVER_URL}/my-bookings/${bookingId}`,
+     {
+       method: 'DELETE',
+       headers: {
+         'content-type': 'application/json',
+         authorization: `Bearer ${tokenData?.token}`,
+       },
      },
-   });
+   );
    const data = await res.json()
    toast.success('cancel booking')
    window.location.reload()

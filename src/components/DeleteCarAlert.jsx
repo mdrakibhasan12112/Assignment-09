@@ -10,13 +10,16 @@ export function DeleteCarAlert({ cars }) {
 
   const handleDelete = async () => {
       const { data: tokenData } = await authClient.token();
-    const res = await fetch(`http://localhost:8080/explore-car/${_id}`, {
-      method: 'DELETE',
-      headers: {
-        'content-type': 'appliction/json',
-        authorization: `Bearer ${tokenData?.token}`,
+    const res = await fetch(
+      `${process.env.NEXT_PUBLIC_SERVER_URL}/explore-car/${_id}`,
+      {
+        method: 'DELETE',
+        headers: {
+          'content-type': 'appliction/json',
+          authorization: `Bearer ${tokenData?.token}`,
+        },
       },
-    });
+    );
     const data = await res.json();
     redirect('/explore-car');
     // console.log(data);

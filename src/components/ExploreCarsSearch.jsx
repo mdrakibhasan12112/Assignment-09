@@ -10,7 +10,9 @@ const ExploreCarsSearch = () => {
   const [type, setType] = useState('');
 
   useEffect(() => {
-    fetch(`http://localhost:8080/explore-car?search=${search}&type=${type}`)
+    fetch(
+      `${process.env.NEXT_PUBLIC_SERVER_URL}/explore-car?search=${search}&type=${type}`,
+    )
       .then(res => res.json())
       .then(data => setCars(data));
   }, [search, type]);

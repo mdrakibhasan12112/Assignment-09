@@ -5,7 +5,7 @@ import CarsCard from './CarsCard';
 import { Sparkles, ArrowRight } from 'lucide-react';
 
 const TopCars = async () => {
-  const res = await fetch('http://localhost:8080/explore-car');
+  const res = await fetch(`${process.env.NEXT_PUBLIC_SERVER_URL}/explore-car`);
   const cars = await res.json();
 
 

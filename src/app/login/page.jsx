@@ -42,7 +42,7 @@ const router = useRouter();
     }
 
     if (error) {
-       toast.error(error.message || 'Signup failed');
+       toast.error(error.message || 'SignIn failed');
     }
   };
 
